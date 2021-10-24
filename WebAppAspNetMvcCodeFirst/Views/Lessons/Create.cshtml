@@ -1,0 +1,11 @@
+﻿@using WebAppAspNetMvcCodeFirst.Models
+@model Lesson
+
+<h3>Пара</h3>
+
+@using (Html.BeginForm("Create", "Lessons", FormMethod.Post, new { @enctype = "multipart/form-data" }))
+{
+    @Html.EditorForModel()
+    <input type="submit" value="Сохранить" />
+    @Html.ActionLink("Отменить", "Index", "Lessons")
+}
