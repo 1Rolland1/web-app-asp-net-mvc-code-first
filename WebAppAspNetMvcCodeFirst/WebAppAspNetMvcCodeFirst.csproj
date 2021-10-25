@@ -175,6 +175,10 @@
     <Compile Include="Migrations\202110250746397_init1.designer.cs">
       <DependentUpon>202110250746397_init1.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\202110250934527_lastversion.cs" />
+    <Compile Include="Migrations\202110250934527_lastversion.designer.cs">
+      <DependentUpon>202110250934527_lastversion.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\Attributes\TargetPropertyAttribute.cs" />
     <Compile Include="Models\Enums\Sex.cs" />
@@ -278,6 +282,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\202110250746397_init1.resx">
       <DependentUpon>202110250746397_init1.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202110250934527_lastversion.resx">
+      <DependentUpon>202110250934527_lastversion.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>

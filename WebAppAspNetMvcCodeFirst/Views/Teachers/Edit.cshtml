@@ -3,7 +3,7 @@
 
 <h3>Учитель</h3>
 
-@using (Html.BeginForm("Edit", "Teachers", FormMethod.Post))
+@using (Html.BeginForm("Edit", "Teachers", FormMethod.Post, new { @enctype = "multipart/form-data" }))
 {
 @Html.ValidationSummary()
 @Html.EditorForModel()

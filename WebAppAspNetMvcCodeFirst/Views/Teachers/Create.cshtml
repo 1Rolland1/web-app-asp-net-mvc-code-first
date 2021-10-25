@@ -3,7 +3,7 @@
 
 <h3>Преподаватель</h3>
 
-@using (Html.BeginForm("Create", "Teachers", FormMethod.Post))
+@using (Html.BeginForm("Create", "Teachers", FormMethod.Post, new { @enctype = "multipart/form-data" }))
 {
     @Html.EditorForModel()
 

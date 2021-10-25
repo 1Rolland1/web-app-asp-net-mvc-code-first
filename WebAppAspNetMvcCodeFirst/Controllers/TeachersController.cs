@@ -32,6 +32,8 @@ namespace WebAppAspNetMvcCodeFirst.Controllers
                 return View(model);
 
             var db = new TimetableContext();
+
+
             if (model.TeacherImageFile != null)
             {
                 var data = new byte[model.TeacherImageFile.ContentLength];
@@ -101,6 +103,7 @@ namespace WebAppAspNetMvcCodeFirst.Controllers
         {
             destination.Name = sourse.Name;
             destination.Sex = sourse.Sex;
+
             if (sourse.TeacherImageFile != null)
             {
                 var image = db.TeacherImages.FirstOrDefault(x => x.Id == sourse.Id);

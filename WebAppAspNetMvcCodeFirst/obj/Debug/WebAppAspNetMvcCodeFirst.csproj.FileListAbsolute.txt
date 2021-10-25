@@ -99,3 +99,4 @@ D:\InternetTechnology\WebAppAspNetMvcCodeFirst\WebAppAspNetMvcCodeFirst\obj\Debu
 D:\InternetTechnology\WebAppAspNetMvcCodeFirst\WebAppAspNetMvcCodeFirst\obj\Debug\WebAppAspNetMvcCodeFirst.Migrations.Final.resources
 D:\InternetTechnology\WebAppAspNetMvcCodeFirst\WebAppAspNetMvcCodeFirst\obj\Debug\WebAppAspNetMvcCodeFirst.Migrations.init10.resources
 D:\InternetTechnology\WebAppAspNetMvcCodeFirst\WebAppAspNetMvcCodeFirst\obj\Debug\WebAppAspNetMvcCodeFirst.Migrations.init1.resources
+D:\InternetTechnology\WebAppAspNetMvcCodeFirst\WebAppAspNetMvcCodeFirst\obj\Debug\WebAppAspNetMvcCodeFirst.Migrations.lastversion.resources

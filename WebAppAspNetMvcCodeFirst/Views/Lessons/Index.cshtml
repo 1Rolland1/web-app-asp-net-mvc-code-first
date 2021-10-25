@@ -18,9 +18,11 @@
             <th>
                 Группа(ы)
             </th>
-            
             <th>
                 Преподаватель
+            </th>
+            <th>
+                Фото преподавателя
             </th>
             <th>
                 Действия
@@ -43,7 +45,9 @@
             <td>
                 @lesson.Teacher.Name
             </td>
-            
+            <td>
+                <img src="/Teachers/GetImage/@lesson.TeacherId" style="max-width: 50px; max-height: 100px;" />
+            </td>
             <td>
                 @Html.ActionLink("Удалить", "Delete", "Lessons", new { id = lesson.Id }, new { })
                 @Html.ActionLink("Изменить", "Edit", "Lessons", new { id = lesson.Id }, new { })

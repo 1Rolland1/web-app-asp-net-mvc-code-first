@@ -23,6 +23,7 @@ namespace WebAppAspNetMvcCodeFirst.Models
         /// </summary>    
         [Required]
         [Display(Name = "Номер пары в расписании", Order = 1)]
+        [Range(1, 8, ErrorMessage = "Недопустимое значение")]
         public int Number { get; set; }
 
         /// <summary>
