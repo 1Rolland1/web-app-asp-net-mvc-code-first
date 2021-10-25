@@ -19,7 +19,7 @@ namespace WebAppAspNetMvcCodeFirst.Models
 
         protected override void OnModelCreating(DbModelBuilder modelBuilder)
         {
-            modelBuilder.Entity<Lesson>().HasOptional(x => x.TeacherImage).WithRequired().WillCascadeOnDelete(true);
+            modelBuilder.Entity<Teacher>().HasOptional(x => x.TeacherImage).WithRequired().WillCascadeOnDelete(true);
             base.OnModelCreating(modelBuilder);
         }
 

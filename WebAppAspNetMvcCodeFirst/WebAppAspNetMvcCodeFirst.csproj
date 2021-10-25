@@ -167,6 +167,14 @@
     <Compile Include="Migrations\202110191328090_Final.designer.cs">
       <DependentUpon>202110191328090_Final.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\202110250243152_init10.cs" />
+    <Compile Include="Migrations\202110250243152_init10.designer.cs">
+      <DependentUpon>202110250243152_init10.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\202110250746397_init1.cs" />
+    <Compile Include="Migrations\202110250746397_init1.designer.cs">
+      <DependentUpon>202110250746397_init1.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\Attributes\TargetPropertyAttribute.cs" />
     <Compile Include="Models\Enums\Sex.cs" />
@@ -264,6 +272,12 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\202110191328090_Final.resx">
       <DependentUpon>202110191328090_Final.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202110250243152_init10.resx">
+      <DependentUpon>202110250243152_init10.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202110250746397_init1.resx">
+      <DependentUpon>202110250746397_init1.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>

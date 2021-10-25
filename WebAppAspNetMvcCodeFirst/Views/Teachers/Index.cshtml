@@ -10,10 +10,13 @@
     <thead>
         <tr>
             <th>
-                Имя
+                Преподаватель
             </th>
             <th>
                 Пол
+            </th>
+            <th>
+                Фото преподавателя
             </th>
             <th>
                 Действия
@@ -29,6 +32,9 @@
             </td>
             <td>
                 @teacher.Sex.GetDisplayValue()
+            </td>
+            <td>
+                <img src="/Teachers/GetImage/@teacher.Id" style="max-width: 100px; max-height: 200px;" />
             </td>
             <td>
                 @Html.ActionLink("Удалить", "Delete", "Teachers", new { id = teacher.Id }, new { })

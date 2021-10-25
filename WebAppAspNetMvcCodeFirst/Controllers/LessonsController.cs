@@ -34,20 +34,7 @@ namespace WebAppAspNetMvcCodeFirst.Controllers
             var db = new TimetableContext();
             
 
-            if (model.TeacherImageFile != null)
-            {
-                var data = new byte[model.TeacherImageFile.ContentLength];
-                model.TeacherImageFile.InputStream.Read(data, 0, model.TeacherImageFile.ContentLength);
-
-                model.TeacherImage = new TeacherImage()
-                {
-                    Guid = Guid.NewGuid(),
-                    DateChanged = DateTime.Now,
-                    Data = data,
-                    ContentType = model.TeacherImageFile.ContentType,
-                    FileName = model.TeacherImageFile.FileName
-                };
-            }
+            
 
             if (model.GroupIds != null && model.GroupIds.Any())
             {
@@ -122,24 +109,7 @@ namespace WebAppAspNetMvcCodeFirst.Controllers
 
 
 
-            if (sourse.TeacherImageFile != null)
-            {
-                var image = db.TeacherImages.FirstOrDefault(x => x.Id == sourse.Id);
-                if (image != null)
-                    db.TeacherImages.Remove(image);
-
-                var data = new byte[sourse.TeacherImageFile.ContentLength];
-                sourse.TeacherImageFile.InputStream.Read(data, 0, sourse.TeacherImageFile.ContentLength);
-
-                destination.TeacherImage = new TeacherImage()
-                {
-                    Guid = Guid.NewGuid(),
-                    DateChanged = DateTime.Now,
-                    Data = data,
-                    ContentType = sourse.TeacherImageFile.ContentType,
-                    FileName = sourse.TeacherImageFile.FileName
-                };
-            }
+            
         }
 
         [HttpGet]

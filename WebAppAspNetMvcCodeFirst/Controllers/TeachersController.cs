@@ -1,4 +1,6 @@
-﻿using System.Data.Entity;
+﻿using System;
+using System.Data.Entity;
+using System.IO;
 using System.Linq;
 using System.Web.Mvc;
 using WebAppAspNetMvcCodeFirst.Models;
@@ -30,7 +32,20 @@ namespace WebAppAspNetMvcCodeFirst.Controllers
                 return View(model);
 
             var db = new TimetableContext();
+            if (model.TeacherImageFile != null)
+            {
+                var data = new byte[model.TeacherImageFile.ContentLength];
+                model.TeacherImageFile.InputStream.Read(data, 0, model.TeacherImageFile.ContentLength);
 
+                model.TeacherImage = new TeacherImage()
+                {
+                    Guid = Guid.NewGuid(),
+                    DateChanged = DateTime.Now,
+                    Data = data,
+                    ContentType = model.TeacherImageFile.ContentType,
+                    FileName = model.TeacherImageFile.FileName
+                };
+            }
             db.Teachers.Add(model);
             db.SaveChanges();
 
@@ -74,7 +89,7 @@ namespace WebAppAspNetMvcCodeFirst.Controllers
             if (!ModelState.IsValid)
                 return View(model);
 
-            MappingTeacher(model, teacher);
+            MappingTeacher(model, teacher, db);
 
             db.Entry(teacher).State = EntityState.Modified;
             db.SaveChanges();
@@ -82,10 +97,45 @@ namespace WebAppAspNetMvcCodeFirst.Controllers
             return RedirectPermanent("/Teachers/Index");
         }
 
-        private void MappingTeacher(Teacher sourse, Teacher destination)
+        private void MappingTeacher(Teacher sourse, Teacher destination, TimetableContext db)
         {
             destination.Name = sourse.Name;
             destination.Sex = sourse.Sex;
+            if (sourse.TeacherImageFile != null)
+            {
+                var image = db.TeacherImages.FirstOrDefault(x => x.Id == sourse.Id);
+                if (image != null)
+                    db.TeacherImages.Remove(image);
+
+                var data = new byte[sourse.TeacherImageFile.ContentLength];
+                sourse.TeacherImageFile.InputStream.Read(data, 0, sourse.TeacherImageFile.ContentLength);
+
+                destination.TeacherImage = new TeacherImage()
+                {
+                    Guid = Guid.NewGuid(),
+                    DateChanged = DateTime.Now,
+                    Data = data,
+                    ContentType = sourse.TeacherImageFile.ContentType,
+                    FileName = sourse.TeacherImageFile.FileName
+                };
+            }
+        }
+        [HttpGet]
+        public ActionResult GetImage(int id)
+        {
+            var db = new TimetableContext();
+            var image = db.TeacherImages.FirstOrDefault(x => x.Id == id);
+            if (image == null)
+            {
+                FileStream fs = System.IO.File.OpenRead(Server.MapPath(@"~/Content/Images/not-foto.png"));
+                byte[] fileData = new byte[fs.Length];
+                fs.Read(fileData, 0, (int)fs.Length);
+                fs.Close();
+
+                return File(new MemoryStream(fileData), "image/jpeg");
+            }
+
+            return File(new MemoryStream(image.Data), image.ContentType);
         }
     }
 }

@@ -20,7 +20,7 @@
             </th>
             
             <th>
-                Фото преподавателя
+                Преподаватель
             </th>
             <th>
                 Действия
@@ -40,10 +40,10 @@
             <td>
                 @string.Join(", ", lesson.Groups.Select(x => $"{x.GroupName}"))
             </td>
-            
             <td>
-                <img src="/Lessons/GetImage/@lesson.Id" style="max-width: 100px; max-height: 200px;" />
+                @lesson.Teacher.Name
             </td>
+            
             <td>
                 @Html.ActionLink("Удалить", "Delete", "Lessons", new { id = lesson.Id }, new { })
                 @Html.ActionLink("Изменить", "Edit", "Lessons", new { id = lesson.Id }, new { })

@@ -22,12 +22,14 @@ namespace WebAppAspNetMvcCodeFirst.Models
         /// Порядковый номер пары в расписании
         /// </summary>    
         [Required]
+        [Display(Name = "Номер пары в расписании", Order = 1)]
         public int Number { get; set; }
 
         /// <summary>
         /// Название
         /// </summary>    
         [Required]
+        [Display(Name = "Пара", Order = 2)]
         public String Name { get; set; }
 
         /// <summary>
@@ -64,15 +66,7 @@ namespace WebAppAspNetMvcCodeFirst.Models
 
 
 
-        /// <summary>
-        /// Фото преподавателя
-        /// </summary> 
-        [ScaffoldColumn(false)]
-        public virtual TeacherImage TeacherImage { get; set; }
        
-        [Display(Name = "Фото преподавателя", Order = 60)]
-        [NotMapped]
-        public HttpPostedFileBase TeacherImageFile { get; set; }
 
         /// <summary>
         /// Преподаватель

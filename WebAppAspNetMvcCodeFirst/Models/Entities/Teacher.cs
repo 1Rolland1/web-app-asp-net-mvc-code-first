@@ -22,7 +22,7 @@ namespace WebAppAspNetMvcCodeFirst.Models
         /// Имя преподавателя
         /// </summary> 
         [Required]
-        [Display(Name = "Название", Order = 5)]
+        [Display(Name = "Преподаватель", Order = 5)]
         public string Name { get; set; }
 
         /// <summary>
@@ -54,6 +54,16 @@ namespace WebAppAspNetMvcCodeFirst.Models
                 return dictionary;
             }
         }
+
+        /// <summary>
+        /// Фото преподавателя
+        /// </summary> 
+        [ScaffoldColumn(false)]
+        public virtual TeacherImage TeacherImage { get; set; }
+
+        [Display(Name = "Фото преподавателя", Order = 60)]
+        [NotMapped]
+        public HttpPostedFileBase TeacherImageFile { get; set; }
 
         ///<summary>
         /// Список предметов, которые ведет преподаватель
