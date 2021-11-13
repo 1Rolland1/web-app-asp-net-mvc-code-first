@@ -105,11 +105,7 @@ namespace WebAppAspNetMvcCodeFirst.Controllers
                 destination.Groups.Clear();
 
             if (sourse.GroupIds != null && sourse.GroupIds.Any())
-                destination.Groups = db.Groups.Where(s => sourse.GroupIds.Contains(s.Id)).ToList();
-
-
-
-            
+                destination.Groups = db.Groups.Where(s => sourse.GroupIds.Contains(s.Id)).ToList();           
         }
 
         [HttpGet]
